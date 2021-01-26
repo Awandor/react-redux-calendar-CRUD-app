@@ -24,7 +24,8 @@ export const authReducer = ( state = initialState, action ) => {
       };
 
     case types.authLogout:
-      console.log( 'authLogout' );
+
+      // console.log( 'authLogout' );
       return {
 
         // ...state, // No retornamos

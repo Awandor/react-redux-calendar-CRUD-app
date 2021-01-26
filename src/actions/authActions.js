@@ -19,7 +19,7 @@ export const authStartLoginAction = ( email, password ) => {
 
     const body = await resp.json(); // await porque json() retorna una promesa
 
-    console.log( body );
+    // console.log( body );
 
     if ( body.ok ) {
 
@@ -58,7 +58,7 @@ export const authStartRegisterAction = ( name, email, password ) => {
 
     const body = await resp.json(); // await porque json() retorna una promesa
 
-    console.log( 'authStartRegisterAction', body );
+    // console.log( 'authStartRegisterAction', body );
 
     if ( body.ok ) {
 
@@ -93,7 +93,7 @@ export const authStartCheckingTokenAction = () => {
 
     const body = await resp.json(); // await porque json() retorna una promesa
 
-    console.log( 'authStartCheckingTokenAction', body );
+    // console.log( 'authStartCheckingTokenAction', body );
 
     if ( body.ok ) {
 

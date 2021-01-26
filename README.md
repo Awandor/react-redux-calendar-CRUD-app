@@ -504,6 +504,117 @@ Vamos a Settings > GitHub Pages > Source > master branch > Save
 La app es ahora accesible desde `https://awandor.github.io/...`
 
 
+## 10 librerías interesantes de React
+
+`https://blog.logrocket.com/top-10-react-component-libraries-for-2020/`
+
+
+
+
+
+# Pruebas Unitarias y de Integración
+
+Las pruebas unitarias están enfocadas en pequeñas funcionalidades mientras las pruebas de integración están enfocadas en cómo reaccionan
+varias piezas en conjunto, el proceso de las pruebas se conoce como **AAA**: Arrange, Act, Assert
+
+1. Arrange, es cuando preparamos el estado inicial: iniciamos variables, importaciones necesarias, preparamos el ambiente del sujeto a probar
+2. Act, aplicamos acciones o estímulos sobre el sujeto a probar: llamamos métodos, simulamos clicks
+3. Assert, observamos el comportamiento resultante y afirmamos que los resultados son los esperados
+
+
+## Instalaciones de paquetes y configuración del entorno de pruebas
+
+Creamos `src/setupTests.js`
+
+### Enzyme
+
+Enzyme es una utilidad para probar componentes de React, fue desarrollado por AirBnB y ahora es mantenido por Facebook
+
+Documentación: `https://enzymejs.github.io/enzyme/`
+
+A fecha de hoy no hay Enzyme para React 17 oficial, hay una versión no oficial en beta pero que nos va a servir: 
+`https://github.com/wojtekmaj/enzyme-adapter-react-17`
+
+La instalamos > `npm install --save-dev enzyme @wojtekmaj/enzyme-adapter-react-17`
+
+Lo importamos en `setupTests.js` según la documentación
+
+### Snapshot
+
+Ahora vamos a trabajar con Snapshot que toma una fotografía de lo que renderiza el componente en forma de datos y que son
+almacenados en una carpeta autogenerada `_snapshots_`
+
+Pero para poder trabajar con esos datos en Jest necesitamos instalar el paquete enzyme-to-json: `https://www.npmjs.com/package/enzyme-to-json`
+
+> `npm install --save-dev enzyme-to-json`
+
+Ahora en `setupTests.js` importamos `createSerializer` según la documentación
+
+### Redux Mock Store
+
+Como trabajamos con Redux tenemos un Store que debemos simular con un mock del Store `https://github.com/reduxjs/redux-mock-store`
+
+> `npm install redux-mock-store --save-dev`
+
+
+> `npm run test`
+
+
+## Pruebas de types.js
+
+Creamos `src/tests/types/types.test.js` comprobamos que el objeto types coincide con la muestra.
+
+
+## Pruebas de fetchHelper.js
+
+Creamos `src/tests/helpers/fetchHelper.test.js` para disparar `fetchWithoutToken` y `fetchWithToken` necesitamos crear `.env.test`
+esperamos que la respuesta sea correcta. Hay que detener y volver a ejecutar > `npm run test`
+
+
+## Pruebas de authActions.js
+
+Creamos `src/tests/actions/authActions.test.js` hay que hacer varias configuraciones pues usamos acciones asíncronas que retornan funciones,
+dispatch, local storage, sweet alert 2, Store de Redux
+
+
+## Pruebas de uiReducer.js
+
+Creamos `src/tests/reducers/uiReducer.test.js` probamos que se abre y se cierra la modal
+
+
+## Pruebas de authReducer.js
+
+Creamos `src/tests/reducers/authReducer.test.js` probamos los tres cases
+
+
+## Pruebas de DeleteFab.js
+
+Creamos `src/tests/components/ui/DeleteFab.test.jsx` hay que hacer varias configuraciones para crear el entorno. Un mock del Store y uno de
+eventStartDeleteAction
+
+
+## Pruebas de AppRouter.jsx
+
+Creamos `src/routers/AppRouter.test.jsx` hay que hacer varias configuraciones para crear el entorno. Un mock del Store
+
+
+## Pruebas en LoginScreen.jsx
+
+Creamos `src/components/auth/LoginScreen.test.jsx` hay que hacer varias configuraciones para crear el entorno. Un mock del Store y de Sweet Alert 2
+
+
+## Pruebas en CalendarScreen.jsx
+
+Creamos `src/tests/components/calendar/CalendarScreen.test.jsx` hay que hacer varias configuraciones para crear el entorno. Un mock del Store,
+mock de varias Acciones y mock de setItem del local storage, también tenemos que usar `act`
+
+
+## Pruebas en la Modal y en DateTimePicker
+
+Creamos `src/tests/components/calendar/CalendarModal.test.jsx`hay que hacer varias configuraciones para crear el entorno. Un mock del Store,
+mock de varias Acciones, mock de setItem del local storage y un mock de Sweet Alert 2, también tenemos que usar `act`
+
+
 
 
 

@@ -20,7 +20,7 @@ export const AppRouter = () => {
     const dispatch = useDispatch();
 
     useEffect( () => {
-        
+
         dispatch( authStartCheckingTokenAction() );
 
     }, [ dispatch ] );
@@ -28,6 +28,11 @@ export const AppRouter = () => {
 
     console.log( 'checking', checking );
 
+    if ( checking ) {
+
+        return ( <h5>Espere...</h5> );
+
+    }
 
     return (
         <Router>

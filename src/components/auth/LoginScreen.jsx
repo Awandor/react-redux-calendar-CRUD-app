@@ -12,8 +12,12 @@ export const LoginScreen = () => {
     // ========================================
 
     const initialLoginState = {
-        loginEmail: 'test@test.es',
-        loginPassword: '123456'
+
+        /* loginEmail: 'test@test.es',
+        loginPassword: '123456' */
+
+        loginEmail: '',
+        loginPassword: ''
     };
 
     const [ formLoginValues, handleLoginInputChange ] = useForm( initialLoginState );

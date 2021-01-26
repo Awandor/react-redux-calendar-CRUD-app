@@ -32,9 +32,16 @@ const initEvent = {
     end: nowPlusOneHour.toDate()
 };
 
-// Make sure to bind modal to your appElement
+// Ponemos la condición para poder hacer las pruebas
 
-Modal.setAppElement( '#root' );
+if( process.env.NODE_ENV !== 'test' ){
+
+    // Make sure to bind modal to your appElement
+
+    Modal.setAppElement( '#root' );
+
+}
+
 
 export const CalendarModal = () => {
 
@@ -136,6 +143,8 @@ export const CalendarModal = () => {
 
         }
 
+        return setTitleValid( true );
+
     };
 
     const handleSubmit = ( e ) => {
@@ -211,6 +220,7 @@ export const CalendarModal = () => {
                 className="modal"
                 overlayClassName="modal-fondo"
                 closeTimeoutMS={200}
+                ariaHideApp={!process.env.NODE_ENV === 'test'}
             >
                 <h1> {( activeEvent ) ? 'Editar evento' : 'Nuevo evento'} </h1>
                 <hr />
